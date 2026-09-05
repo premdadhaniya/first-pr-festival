@@ -12,166 +12,68 @@
 -->
 <div
   class="spider-card"
-  data-name="Prem Dadhaniya"
-  data-alias="Tony Chacha"
-  data-github="premdadhaniya"
+  data-name="Your Name"
+  data-alias="Your Spider-Alias"
+  data-github="your-github-username"
   data-suit="#E62429"
 >
   <style>
     /* ── Your suit starts here ──────────────────────────────── */
     .spider-card {
       --suit: #e62429;
-      --web: #3a6fd8;
-      --pink: #ff5fa2;
-      --silver: #c9c9d6;
       --ink: #08080a;
 
       width: 320px;
       height: 440px;
       box-sizing: border-box;
-      padding: 20px 22px;
+      padding: 22px;
       font-family: system-ui, sans-serif;
       color: #e8e6e3;
-      background:
-        radial-gradient(circle at 78% 8%, rgba(230,36,41,0.28), transparent 42%),
-        radial-gradient(circle at 15% 95%, rgba(58,111,216,0.20), transparent 45%),
-        radial-gradient(circle at 30% 0%, #2a0508, var(--ink) 72%);
+      background: radial-gradient(circle at 30% 0%, #2a0508, var(--ink) 70%);
       border: 2px solid var(--suit);
       border-radius: 18px;
       overflow: hidden;
       position: relative;
-      isolation: isolate;
-      box-shadow: 0 0 0 1px rgba(230,36,41,0.25), 0 18px 40px rgba(0,0,0,0.55);
     }
 
-    /* diagonal webbing */
+    /* Webbing, drawn with two repeating gradients. Delete it if you like. */
     .spider-card::before {
       content: "";
       position: absolute;
       inset: 0;
       background-image: repeating-linear-gradient(
-          45deg, rgba(255,255,255,0.06) 0 1px, transparent 1px 14px
+          45deg,
+          rgba(255, 255, 255, 0.06) 0 1px,
+          transparent 1px 14px
         ),
-        repeating-linear-gradient(-45deg, rgba(255,255,255,0.06) 0 1px, transparent 1px 14px);
+        repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.06) 0 1px, transparent 1px 14px);
       pointer-events: none;
-      z-index: 0;
     }
-
-    /* comic halftone dots on top of the webbing */
-    .spider-card::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-image: radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px);
-      background-size: 7px 7px;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .spider-card > * { position: relative; z-index: 1; }
-
-    .webring {
-      position: absolute;
-      top: -70px; right: -70px;
-      width: 220px; height: 220px;
-      opacity: 0.22;
-      animation: spin 70s linear infinite;
-      z-index: 0;
-    }
-    @keyframes spin { to { transform: rotate(360deg); } }
-
-    .topline {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .badge {
-      font-size: 9px;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      color: var(--suit);
-      border: 1px solid rgba(230,36,41,0.6);
-      background: rgba(230,36,41,0.10);
-      padding: 3px 7px;
-      border-radius: 20px;
-    }
-    .pulse {
-      display: flex; align-items: center; gap: 4px;
-      font-size: 9px; font-weight: 700; letter-spacing: 1px;
-      color: #7CFC9A;
-    }
-    .pulse::before {
-      content: ""; width: 6px; height: 6px; border-radius: 50%;
-      background: #7CFC9A; box-shadow: 0 0 7px #7CFC9A;
-      animation: blink 1.6s ease-in-out infinite;
-    }
-    @keyframes blink { 50% { opacity: 0.2; } }
-
-    .avatar-row {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-top: 16px;
-    }
-
-    .avatar-wrap { position: relative; width: 84px; height: 84px; flex: none; }
-    .avatar-wrap::before {
-      content: "";
-      position: absolute; inset: -5px;
-      border-radius: 17px;
-      background: conic-gradient(var(--suit), var(--web), var(--pink), var(--silver), var(--suit));
-      animation: suitcycle 5s linear infinite;
-      filter: blur(3px);
-      opacity: 0.9;
-      z-index: -1;
-    }
-    @keyframes suitcycle { to { transform: rotate(360deg); } }
 
     .avatar {
-      width: 84px; height: 84px;
+      width: 84px;
+      height: 84px;
       border-radius: 14px;
-      border: 2px solid var(--ink);
+      border: 2px solid var(--suit);
       object-fit: cover;
-      display: block;
-      box-shadow: 0 0 22px rgba(230,36,41,0.5);
+      box-shadow: 0 0 22px rgba(15, 165, 50, 0.5);
     }
-
-    .id-mask {
-      width: 40px; height: 40px;
-      border-radius: 50%;
-      background: radial-gradient(circle at 35% 30%, #1c1c24, #08080b 70%);
-      position: relative;
-      flex: none;
-      box-shadow: inset 0 0 8px rgba(0,0,0,0.85), 0 0 10px rgba(230,36,41,0.4);
-    }
-    .id-mask::before, .id-mask::after {
-      content: "";
-      position: absolute; top: 14px;
-      width: 11px; height: 8px;
-      background: #f4f4f8;
-      box-shadow: 0 0 6px rgba(255,255,255,0.7);
-      clip-path: polygon(0% 50%, 30% 0%, 100% 15%, 100% 85%, 30% 100%);
-    }
-    .id-mask::before { left: 5px; }
-    .id-mask::after  { right: 5px; transform: scaleX(-1); }
 
     .alias {
-      margin: 16px 0 2px;
-      font-size: 27px;
+      margin: 14px 0 2px;
+      font-size: 26px;
       line-height: 1.05;
       letter-spacing: 0.5px;
       color: var(--suit);
       text-transform: uppercase;
-      font-weight: 800;
-      animation: glitch 4.5s infinite;
-    }
-    @keyframes glitch {
-      0%, 100% { text-shadow: 1.5px 0 var(--web), -1.5px 0 transparent; }
-      35%      { text-shadow: 1.5px 0 var(--pink), -1.5px 0 var(--suit); }
-      70%      { text-shadow: 1.5px 0 var(--silver), -1.5px 0 var(--web); }
     }
 
-    .name { margin: 0; font-size: 14px; opacity: 0.78; }
+    .name {
+      margin: 0;
+      font-size: 14px;
+      opacity: 0.75;
+    }
+
     .handle {
       margin-top: 4px;
       font-family: ui-monospace, monospace;
@@ -183,127 +85,51 @@
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
-      margin-top: 16px;
+      margin-top: 18px;
       padding: 0;
       list-style: none;
     }
+
     .skills li {
       padding: 5px 10px;
       font-size: 12px;
       border: 1px solid var(--suit);
       border-radius: 999px;
-      background: rgba(230,36,41,0.12);
-    }
-
-    .multiverse {
-      display: flex;
-      gap: 6px;
-      margin-top: 14px;
-    }
-    .multiverse span {
-      font-size: 8.5px;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-      padding: 3px 7px;
-      border-radius: 6px;
-      color: #0a0a0d;
-      cursor: default;
-    }
-    .multiverse .m1 { background: var(--suit); color: #fff; }
-    .multiverse .m2 { background: #1c1c22; color: #fff; border: 1px solid var(--suit); }
-    .multiverse .m3 { background: var(--pink); }
-    .multiverse .m4 { background: var(--silver); }
-    .multiverse .m5 { background: #f4f4f8; }
-
-    .crawler {
-      position: absolute;
-      top: 0; left: 0;
-      width: 15px; height: 15px;
-      opacity: 0.9;
-      animation: crawl 9s ease-in-out infinite;
-      z-index: 2;
-    }
-    @keyframes crawl {
-      0%   { transform: translate(14px, 14px) rotate(0deg); }
-      25%  { transform: translate(262px, 20px) rotate(90deg); }
-      50%  { transform: translate(272px, 372px) rotate(180deg); }
-      75%  { transform: translate(20px, 382px) rotate(270deg); }
-      100% { transform: translate(14px, 14px) rotate(360deg); }
+      background: rgba(188, 149, 9, 0.12);
     }
 
     .footer {
       position: absolute;
-      left: 22px; right: 22px; bottom: 16px;
+      left: 22px;
+      right: 22px;
+      bottom: 18px;
       display: flex;
       justify-content: space-between;
       font-family: ui-monospace, monospace;
       font-size: 10px;
       letter-spacing: 2px;
       text-transform: uppercase;
-      opacity: 0.5;
-      border-top: 1px solid rgba(255,255,255,0.12);
+      opacity: 0.45;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
       padding-top: 10px;
     }
   </style>
 
-  <svg class="webring" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg">
-    <g stroke="#ffffff" stroke-width="1" fill="none">
-      <circle cx="110" cy="110" r="30"/>
-      <circle cx="110" cy="110" r="55"/>
-      <circle cx="110" cy="110" r="80"/>
-      <circle cx="110" cy="110" r="105"/>
-      <line x1="110" y1="5" x2="110" y2="215"/>
-      <line x1="5" y1="110" x2="215" y2="110"/>
-      <line x1="35" y1="35" x2="185" y2="185"/>
-      <line x1="185" y1="35" x2="35" y2="185"/>
-    </g>
-  </svg>
+  <!-- Swap the username in this URL for your own -->
+  <img class="avatar" src="https://github.com/your-github-username.png" alt="" />
 
-  <svg class="crawler" viewBox="0 0 24 24" fill="#e8e6e3">
-    <circle cx="12" cy="12" r="3.5"/>
-    <g stroke="#e8e6e3" stroke-width="1.2">
-      <line x1="9" y1="10" x2="2" y2="6"/>
-      <line x1="9" y1="12" x2="1" y2="12"/>
-      <line x1="9" y1="14" x2="2" y2="18"/>
-      <line x1="15" y1="10" x2="22" y2="6"/>
-      <line x1="15" y1="12" x2="23" y2="12"/>
-      <line x1="15" y1="14" x2="22" y2="18"/>
-    </g>
-  </svg>
-
-  <div class="topline">
-    <span class="badge">SPIDER-VERSE</span>
-    <span class="pulse">ACTIVE</span>
-  </div>
-
-  <div class="avatar-row">
-    <div class="avatar-wrap">
-      <!-- Swap the username in this URL for your own -->
-      <img class="avatar" src="https://github.com/premdadhaniya.png" alt="" />
-    </div>
-    <div class="id-mask"></div>
-  </div>
-
-  <h1 class="alias">Tony Chacha</h1>
+  <h1 class="alias">Loki</h1>
   <p class="name">Prem Dadhaniya</p>
   <p class="handle">@premdadhaniya</p>
 
   <ul class="skills">
-    <li>Genius</li>
-    <li>Billionaire</li>
-    <li>Philanthropist</li>
+    <li>Skill One</li>
+    <li>Skill Two</li>
+    <li>Skill Three</li>
   </ul>
-
-  <div class="multiverse">
-    <span class="m1" title="Earth-616">616</span>
-    <span class="m2" title="Earth-1610">1610</span>
-    <span class="m3" title="Earth-65">65</span>
-    <span class="m4" title="Earth-90214">NOIR</span>
-    <span class="m5" title="Earth-8311">HAM</span>
-  </div>
 
   <div class="footer">
     <span>Spider-Society</span>
-    <span>Earth-616</span>
+    <span>Earth-1610</span>
   </div>
 </div>
